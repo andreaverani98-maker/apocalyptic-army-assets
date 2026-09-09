@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Cassa Apocalyptic Army</title>
+
+  <link rel="manifest" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png">
+
+  <meta name="theme-color" content="#0b120e">
+  <meta name="background-color" content="#0b120e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cassa AA">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #0b120e;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .splash {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 26px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+    }
+
+    .title {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: #9fa9a2;
+      font-size: 13px;
+    }
+
+    .loader {
+      width: 36px;
+      height: 36px;
+      margin: 22px auto 0;
+      border: 4px solid rgba(255,255,255,.15);
+      border-top-color: #f39a18;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    .open {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      background: #f39a18;
+      color: #111;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <script>
+    const APP_URL = 'https://script.google.com/macros/s/AKfycbxIVNIhmeJzQP98glFEjO5diEaY-knjvHDkrUQCPxTGvCziqsXEZ-2vcKmR9iSZZ1ap/exec';
+
+    window.addEventListener('load', function() {
+      /*
+       * La pagina GitHub Pages è il punto di ingresso installabile.
+       * Dopo un breve istante apre il gestionale Apps Script.
+       */
+      setTimeout(function() {
+        window.location.replace(APP_URL);
+      }, 700);
+    });
+  </script>
+</head>
+
+<body>
+  <main class="splash">
+    <img
+      class="logo"
+      src="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png"
+      alt="Apocalyptic Army ASD"
+    >
+
+    <div class="title">Cassa Apocalyptic Army</div>
+    <div class="subtitle">Apertura gestionale...</div>
+    <div class="loader" aria-hidden="true"></div>
+
+    <noscript>
+      <a class="open" href="https://script.google.com/macros/s/AKfycbxIVNIhmeJzQP98glFEjO5diEaY-knjvHDkrUQCPxTGvCziqsXEZ-2vcKmR9iSZZ1ap/exec">
+        APRI GESTIONALE
+      </a>
+    </noscript>
+  </main>
+</body>
+</html>
