@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cassa Apocalyptic Army</title>
+
+  <link rel="manifest" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png">
+
   <meta name="theme-color" content="#0b120e">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Apocalyptic Army">
-
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="logo-192.png">
-
-  <title>Apocalyptic Army</title>
+  <meta name="apple-mobile-web-app-title" content="Cassa AA">
 
   <style>
     * { box-sizing: border-box; }
@@ -26,95 +30,80 @@
 
     body {
       min-height: 100vh;
-      min-height: 100dvh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding:
-        calc(24px + env(safe-area-inset-top))
-        24px
-        calc(24px + env(safe-area-inset-bottom));
+      align-items: center;
+      padding: 24px;
     }
 
-    .app {
+    .card {
       width: 100%;
       max-width: 420px;
       text-align: center;
+      padding: 28px 22px;
+      border: 1px solid #35443a;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #17231b, #0e1611);
+      box-shadow: 0 16px 42px rgba(0,0,0,.35);
     }
 
     .logo {
       width: 190px;
       height: 190px;
-      max-width: 58vw;
-      max-height: 58vw;
-      object-fit: contain;
+      object-fit: cover;
+      border-radius: 28px;
       display: block;
-      margin: 0 auto 24px;
+      margin: 0 auto;
     }
 
     h1 {
-      margin: 0;
-      font-size: 26px;
-      line-height: 1.1;
+      margin: 22px 0 6px;
+      font-size: 23px;
       font-weight: 900;
-      letter-spacing: .4px;
     }
 
     .subtitle {
-      margin: 8px 0 30px;
-      color: #a9b5ad;
+      margin: 0;
+      color: #9fa9a2;
       font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.1px;
+      line-height: 1.45;
     }
 
-    .button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .open {
+      display: block;
       width: 100%;
-      min-height: 58px;
-      padding: 16px 20px;
-      border-radius: 16px;
-      background: #1fbe67;
-      color: #07100a;
+      margin-top: 26px;
+      padding: 16px 14px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #f8a21b, #f39a18);
+      color: #111;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 900;
-      letter-spacing: .4px;
-      box-shadow: 0 10px 28px rgba(31,190,103,.18);
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .button:active {
-      transform: scale(.985);
     }
 
     .footer {
-      margin-top: 28px;
-      color: #617068;
+      margin-top: 18px;
+      color: #69746d;
       font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: .6px;
     }
   </style>
 </head>
 
 <body>
-  <main class="app">
-    <img class="logo" src="logo.png" alt="Apocalyptic Army A.S.D.">
+  <main class="card">
+    <img class="logo" src="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png" alt="Apocalyptic Army ASD">
+    <h1>Cassa Apocalyptic Army</h1>
+    <p class="subtitle">Gestionale cassa · Apocalyptic Army A.S.D.</p>
 
-    <h1>APOCALYPTIC ARMY</h1>
-    <div class="subtitle">A.S.D. · SOFTAIR BITONTO</div>
-
-    <a
-      class="button"
-      href="https://script.google.com/macros/s/AKfycbxIVNIhmeJzQP98glFEjO5diEaY-knjvHDkrUQCPxTGvCziqsXEZ-2vcKmR9iSZZ1ap/exec"
-    >
+    <a class="open" href="https://script.google.com/macros/s/AKfycbxIVNIhmeJzQP98glFEjO5diEaY-knjvHDkrUQCPxTGvCziqsXEZ-2vcKmR9iSZZ1ap/exec">
       APRI GESTIONALE
     </a>
 
-    <div class="footer">GESTIONALE ASSOCIATIVO</div>
+    <div class="footer">
+      APOCALYPTIC ARMY A.S.D. · SOFTAIR BITONTO
+    </div>
   </main>
 </body>
 </html>
