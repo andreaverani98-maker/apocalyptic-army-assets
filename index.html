@@ -3,107 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Cassa Apocalyptic Army</title>
-
-  <link rel="manifest" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/manifest.json">
-  <link rel="icon" type="image/png" sizes="192x192" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-192.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png">
-
   <meta name="theme-color" content="#0b120e">
-  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Cassa AA">
-
+  <meta name="apple-mobile-web-app-title" content="Apocalyptic Army">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="logo-192.png">
+  <title>Cassa Apocalyptic Army</title>
   <style>
     * { box-sizing: border-box; }
-
     html, body {
       margin: 0;
-      min-height: 100%;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       background: #0b120e;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
     }
-
-    body {
-      min-height: 100vh;
+    body { font-family: Arial, Helvetica, sans-serif; }
+    .shell {
+      position: fixed;
+      inset: 0;
+      background: #0b120e;
+    }
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #0b120e;
+    }
+    .loading {
+      position: absolute;
+      inset: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 24px;
+      justify-content: center;
+      gap: 18px;
+      background: #0b120e;
+      color: white;
+      z-index: 2;
+      transition: opacity .25s ease;
     }
-
-    .card {
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-      padding: 28px 22px;
-      border: 1px solid #35443a;
-      border-radius: 22px;
-      background: linear-gradient(145deg, #17231b, #0e1611);
-      box-shadow: 0 16px 42px rgba(0,0,0,.35);
+    .loading.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
-
     .logo {
-      width: 190px;
-      height: 190px;
+      width: 150px;
+      height: 150px;
       object-fit: cover;
-      border-radius: 28px;
-      display: block;
-      margin: 0 auto;
+      border-radius: 24px;
     }
-
-    h1 {
-      margin: 22px 0 6px;
-      font-size: 23px;
+    .title {
+      font-size: 18px;
       font-weight: 900;
     }
-
-    .subtitle {
-      margin: 0;
-      color: #9fa9a2;
-      font-size: 13px;
-      line-height: 1.45;
+    .spinner {
+      width: 34px;
+      height: 34px;
+      border: 4px solid rgba(255,255,255,.15);
+      border-top-color: #f39a18;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
     }
-
-    .open {
-      display: block;
-      width: 100%;
-      margin-top: 26px;
-      padding: 16px 14px;
-      border-radius: 14px;
-      background: linear-gradient(180deg, #f8a21b, #f39a18);
-      color: #111;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 900;
-    }
-
-    .footer {
-      margin-top: 18px;
-      color: #69746d;
-      font-size: 10px;
-      letter-spacing: .6px;
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
-
 <body>
-  <main class="card">
-    <img class="logo" src="https://andreaverani98-maker.github.io/apocalyptic-army-assets/logo-512.png" alt="Apocalyptic Army ASD">
-    <h1>Cassa Apocalyptic Army</h1>
-    <p class="subtitle">Gestionale cassa · Apocalyptic Army A.S.D.</p>
-
-    <a class="open" href="https://script.google.com/macros/s/AKfycbxIVNIhmeJzQP98glFEjO5diEaY-knjvHDkrUQCPxTGvCziqsXEZ-2vcKmR9iSZZ1ap/exec">
-      APRI GESTIONALE
-    </a>
-
-    <div class="footer">
-      APOCALYPTIC ARMY A.S.D. · SOFTAIR BITONTO
+  <div class="shell">
+    <div id="loading" class="loading">
+      <img class="logo" src="logo-512.png" alt="Apocalyptic Army ASD">
+      <div class="title">Cassa Apocalyptic Army</div>
+      <div class="spinner" aria-hidden="true"></div>
     </div>
-  </main>
+
+    <iframe
+      id="gestionale"
+      title="Gestionale Apocalyptic Army"
+      src="https://script.google.com/macros/s/AKfycbxIVNIhmeJzQP98glFEjO5diEaY-knjvHDkrUQCPxTGvCziqsXEZ-2vcKmR9iSZZ1ap/exec"
+      allow="clipboard-read; clipboard-write"
+    ></iframe>
+  </div>
+
+  <script>
+    const frame = document.getElementById('gestionale');
+    const loading = document.getElementById('loading');
+
+    frame.addEventListener('load', function () {
+      setTimeout(function () {
+        loading.classList.add('hidden');
+      }, 250);
+    });
+  </script>
 </body>
 </html>
