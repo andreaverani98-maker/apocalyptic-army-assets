@@ -7,96 +7,114 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Apocalyptic Army">
+
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="logo-192.png">
-  <title>Cassa Apocalyptic Army</title>
+
+  <title>Apocalyptic Army</title>
+
   <style>
     * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      min-height: 100%;
       background: #0b120e;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
     }
-    body { font-family: Arial, Helvetica, sans-serif; }
-    .shell {
-      position: fixed;
-      inset: 0;
-      background: #0b120e;
-    }
-    iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-      background: #0b120e;
-    }
-    .loading {
-      position: absolute;
-      inset: 0;
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      background: #0b120e;
-      color: white;
-      z-index: 2;
-      transition: opacity .25s ease;
+      padding:
+        calc(24px + env(safe-area-inset-top))
+        24px
+        calc(24px + env(safe-area-inset-bottom));
     }
-    .loading.hidden {
-      opacity: 0;
-      pointer-events: none;
+
+    .app {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
     }
+
     .logo {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 24px;
+      width: 190px;
+      height: 190px;
+      max-width: 58vw;
+      max-height: 58vw;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 24px;
     }
-    .title {
-      font-size: 18px;
+
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.1;
       font-weight: 900;
+      letter-spacing: .4px;
     }
-    .spinner {
-      width: 34px;
-      height: 34px;
-      border: 4px solid rgba(255,255,255,.15);
-      border-top-color: #f39a18;
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
+
+    .subtitle {
+      margin: 8px 0 30px;
+      color: #a9b5ad;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 58px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: #1fbe67;
+      color: #07100a;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: .4px;
+      box-shadow: 0 10px 28px rgba(31,190,103,.18);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .button:active {
+      transform: scale(.985);
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: #617068;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
+
 <body>
-  <div class="shell">
-    <div id="loading" class="loading">
-      <img class="logo" src="logo-512.png" alt="Apocalyptic Army ASD">
-      <div class="title">Cassa Apocalyptic Army</div>
-      <div class="spinner" aria-hidden="true"></div>
-    </div>
+  <main class="app">
+    <img class="logo" src="logo.png" alt="Apocalyptic Army A.S.D.">
 
-    <iframe
-      id="gestionale"
-      title="Gestionale Apocalyptic Army"
-      src="https://script.google.com/macros/s/AKfycbxIVNIhmeJzQP98glFEjO5diEaY-knjvHDkrUQCPxTGvCziqsXEZ-2vcKmR9iSZZ1ap/exec"
-      allow="clipboard-read; clipboard-write"
-    ></iframe>
-  </div>
+    <h1>APOCALYPTIC ARMY</h1>
+    <div class="subtitle">A.S.D. · SOFTAIR BITONTO</div>
 
-  <script>
-    const frame = document.getElementById('gestionale');
-    const loading = document.getElementById('loading');
+    <a
+      class="button"
+      href="https://script.google.com/macros/s/AKfycbxIVNIhmeJzQP98glFEjO5diEaY-knjvHDkrUQCPxTGvCziqsXEZ-2vcKmR9iSZZ1ap/exec"
+    >
+      APRI GESTIONALE
+    </a>
 
-    frame.addEventListener('load', function () {
-      setTimeout(function () {
-        loading.classList.add('hidden');
-      }, 250);
-    });
-  </script>
+    <div class="footer">GESTIONALE ASSOCIATIVO</div>
+  </main>
 </body>
 </html>
